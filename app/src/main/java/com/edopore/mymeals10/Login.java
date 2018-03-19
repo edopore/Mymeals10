@@ -20,6 +20,7 @@ public class Login extends AppCompatActivity {
         user = findViewById(R.id.eUser);
         pass = findViewById(R.id.ePass);
         Usuario = Password = "";
+        //SE VERA ESTE CAMBIO
     }
 
     @Override
