@@ -3,6 +3,7 @@ package com.edopore.mymeals10;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -18,6 +19,7 @@ public class Login extends AppCompatActivity {
 
         user = findViewById(R.id.eUser);
         pass = findViewById(R.id.ePass);
+        Usuario = Password = "";
     }
 
     @Override
@@ -38,17 +40,18 @@ public class Login extends AppCompatActivity {
     }
 
     public void onIngresarClick(View view) {
-        if (Usuario.isEmpty() || Password.isEmpty()) {
+        if (user.getText().toString().isEmpty() || pass.getText().toString().isEmpty()) {
             Toast.makeText(this, R.string.logerror2, Toast.LENGTH_SHORT).show();
-        }
-        if (Usuario.equals(user.getText().toString()) && Password.equals(pass.getText().toString())) {
-            Intent l = new Intent().setClass(this, MainActivity.class);
-            l.putExtra("USER",Usuario);
-            l.putExtra("PASS",Password);
-            startActivityForResult(l, 4321);
-            finish();
         } else {
-            Toast.makeText(this, R.string.logerror, Toast.LENGTH_SHORT).show();
+            if (Usuario.equals(user.getText().toString()) && Password.equals(pass.getText().toString())) {
+                Intent l = new Intent().setClass(this, MainActivity.class);
+                l.putExtra("USER", Usuario);
+                l.putExtra("PASS", Password);
+                startActivityForResult(l, 4321);
+                finish();
+            } else {
+                Toast.makeText(this, R.string.logerror, Toast.LENGTH_SHORT).show();
+            }
         }
 
     }
