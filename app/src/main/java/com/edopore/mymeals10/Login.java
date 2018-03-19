@@ -20,7 +20,6 @@ public class Login extends AppCompatActivity {
         user = findViewById(R.id.eUser);
         pass = findViewById(R.id.ePass);
         Usuario = Password = "";
-        //SE VERA ESTE CAMBIO
     }
 
     @Override
@@ -41,7 +40,7 @@ public class Login extends AppCompatActivity {
     }
 
     public void onIngresarClick(View view) {
-        if (user.getText().toString().isEmpty() || pass.getText().toString().isEmpty()) {
+        if (Usuario.isEmpty() || Password.isEmpty()) {
             Toast.makeText(this, R.string.logerror2, Toast.LENGTH_SHORT).show();
         } else {
             if (Usuario.equals(user.getText().toString()) && Password.equals(pass.getText().toString())) {
